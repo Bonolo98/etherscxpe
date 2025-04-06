@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Navbar from './components/Navbar';
 import LayoutGridDemo from './components/layout-grid-demo';
+import Contact from './components/contacts/page';
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState('services');
@@ -18,14 +19,14 @@ export default function Home() {
       )}
 
       {activeSection === 'pricing' && (
-        <div className="pt-10 min-h-screen flex items-center justify-center bg-gray-100">
+        <div className=" min-h-screen h-screen flex items-center justify-center bg-gray-100">
           <h2 className="text-4xl font-bold">Pricing Section</h2>
         </div>
       )}
 
       {activeSection === 'contact' && (
         <div className="pt-10 min-h-screen flex items-center justify-center bg-gray-200">
-          <h2 className="text-4xl font-bold">Contact Section</h2>
+          < Contact />
         </div>
       )}
     </main>
