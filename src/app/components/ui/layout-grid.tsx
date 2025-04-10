@@ -1,43 +1,43 @@
-"use client"
-import type React from "react"
-import { useState, useEffect, JSX } from "react"
-import { motion } from "motion/react"
-import { cn } from "@/lib/utils"
+"use client";
+import type React from "react";
+import { useState, useEffect, JSX } from "react";
+import { motion } from "motion/react";
+import { cn } from "@/lib/utils";
 
 type Card = {
-  id: number
-  content: JSX.Element | React.ReactNode | string
-  className: string
-  thumbnail: string
-}
+  id: number;
+  content: JSX.Element | React.ReactNode | string;
+  className: string;
+  thumbnail: string;
+};
 
 export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
-  const [selected, setSelected] = useState<Card | null>(null)
-  const [lastSelected, setLastSelected] = useState<Card | null>(null)
-  const [bodyOverflowStyle, setBodyOverflowStyle] = useState<string>("")
+  const [selected, setSelected] = useState<Card | null>(null);
+  const [lastSelected, setLastSelected] = useState<Card | null>(null);
+  const [bodyOverflowStyle, setBodyOverflowStyle] = useState<string>("");
 
   const handleClick = (card: Card) => {
-    setLastSelected(selected)
-    setSelected(card)
+    setLastSelected(selected);
+    setSelected(card);
     // Store the current body overflow style
-    setBodyOverflowStyle(document.body.style.overflow)
+    setBodyOverflowStyle(document.body.style.overflow);
     // Prevent background scrolling when a card is expanded
-    document.body.style.overflow = "hidden"
-  }
+    document.body.style.overflow = "hidden";
+  };
 
   const handleOutsideClick = () => {
-    setLastSelected(selected)
-    setSelected(null)
+    setLastSelected(selected);
+    setSelected(null);
     // Restore the body overflow style
-    document.body.style.overflow = bodyOverflowStyle
-  }
+    document.body.style.overflow = bodyOverflowStyle;
+  };
 
   // Clean up the body style when component unmounts
   useEffect(() => {
     return () => {
-      document.body.style.overflow = ""
-    }
-  }, [])
+      document.body.style.overflow = "";
+    };
+  }, []);
 
   return (
     <div className="w-full h-full p-10 grid grid-cols-1 md:grid-cols-3 max-w-7xl mx-auto gap-4 relative">
@@ -51,8 +51,8 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
               selected?.id === card.id
                 ? "rounded-lg cursor-pointer fixed inset-0 h-1/2 w-full md:w-1/2 m-auto z-50 flex justify-center items-center flex-wrap flex-col"
                 : lastSelected?.id === card.id
-                  ? "z-40 bg-white rounded-xl h-full w-full"
-                  : "bg-white rounded-xl h-full w-full",
+                ? "z-40 bg-white rounded-xl h-full w-full"
+                : "bg-white rounded-xl h-full w-full"
             )}
             layoutId={`card-${card.id}`}
           >
@@ -65,13 +65,13 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
         onClick={handleOutsideClick}
         className={cn(
           "fixed inset-0 bg-black opacity-0 z-10",
-          selected?.id ? "pointer-events-auto" : "pointer-events-none",
+          selected?.id ? "pointer-events-auto" : "pointer-events-none"
         )}
         animate={{ opacity: selected?.id ? 0.3 : 0 }}
       />
     </div>
-  )
-}
+  );
+};
 
 const ImageComponent = ({ card }: { card: Card }) => {
   return (
@@ -80,11 +80,13 @@ const ImageComponent = ({ card }: { card: Card }) => {
       src={card.thumbnail}
       height="500"
       width="500"
-      className={cn("object-cover object-top absolute inset-0 h-full w-full transition duration-200")}
+      className={cn(
+        "object-cover object-top absolute inset-0 h-full w-full transition duration-200"
+      )}
       alt="thumbnail"
     />
-  )
-}
+  );
+};
 
 const SelectedCard = ({ selected }: { selected: Card | null }) => {
   return (
@@ -121,6 +123,5 @@ const SelectedCard = ({ selected }: { selected: Card | null }) => {
         {selected?.content}
       </motion.div>
     </div>
-  )
-}
-
+  );
+};

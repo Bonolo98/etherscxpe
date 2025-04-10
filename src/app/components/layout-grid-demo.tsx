@@ -106,8 +106,8 @@ const PhotoSkeletonTwo = () => {
     <div>
       <p className="font-bold md:text-4xl text-xl text-white">Mountain Views</p>
       <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
-        Majestic peaks and valleys captured in perfect light, showcasing
-        natures grandeur.
+        Majestic peaks and valleys captured in perfect light, showcasing natures
+        grandeur.
       </p>
     </div>
   );
