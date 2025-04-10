@@ -9,7 +9,10 @@ export default function Home() {
   return (
     <main className="min-h-screen h-auto bg-black">
       <div>
-        <GalleryHeader />
+        <div className="sticky">
+        <GalleryHeader  />
+        </div>
+
         <GalleryTabs />
       </div>
       <div className="pt-32 min-h-screen flex items-center justify-center bg-black">

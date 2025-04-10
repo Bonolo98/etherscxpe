@@ -153,8 +153,8 @@ export default function GalleryTabs() {
                       clsx(
                         "px-3 py-1.5 text-sm rounded-md font-medium",
                         selected
-                          ? "bg-black text-white"
-                          : "bg-gray-50 text-black hover:bg-gray-200"
+                            ? "bg-white outline-black text-black"
+                          : "bg-black text-white hover:bg-stone-700"
                       )
                     }
                   >
