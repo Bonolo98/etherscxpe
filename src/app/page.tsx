@@ -5,12 +5,11 @@ import GalleryHeader from "./components/GalleryHeader";
 import GalleryTabs from "./components/GalleryTabs";
 
 export default function Home() {
-
   return (
     <main className="min-h-screen h-auto bg-black">
       <div>
         <div className="sticky">
-        <GalleryHeader  />
+          <GalleryHeader />
         </div>
 
         <GalleryTabs />

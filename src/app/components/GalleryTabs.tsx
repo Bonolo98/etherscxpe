@@ -16,12 +16,12 @@ const studioPhotos = [
 ];
 
 const outdoorPhotos = [
+  "/zee1.jpg",
   "/outdoor.jpg",
-  "/outdoor.jpg",
-  "/outdoor.jpg",
-  "/outdoor.jpg",
-  "/outdoor.jpg",
-  "/outdoor.jpg",
+  "/matric3.jpg",
+  "/babyshower.jpg",
+  "/outdoor2.jpg",
+  "/babyshower3.jpg",
 ];
 
 const graphicDesigns = [
@@ -153,7 +153,7 @@ export default function GalleryTabs() {
                       clsx(
                         "px-3 py-1.5 text-sm rounded-md font-medium",
                         selected
-                            ? "bg-white outline-black text-black"
+                          ? "bg-white outline-black text-black"
                           : "bg-black text-white hover:bg-stone-700"
                       )
                     }
